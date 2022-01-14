@@ -1,2 +1,2 @@
-# The-Alfred-Project
+# Alfred
 Alfred is a Virtual Assistant, capable of automating mundane tasks via voice commands.

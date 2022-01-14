@@ -8,6 +8,8 @@
 # Purpose:
 #   The purpose of this project is to learn how to interact with hardware via Python.
 #   Additionally, to learn how to take data from peripherals and perform analysis on said data.
+#   This project is a virtual assistant that is able to respond to user voice commands
+
 
 # Through the speech_recongition Python module, I am able to implement Google's voice recognition
 # software in order to gather microphone data and perform the functions of a Virtual Assistant.
@@ -30,6 +32,7 @@ def main():
 
     while True:
         print("\n" + pattern)
+        input("Press Enter to say a command...\n")
         print(f"Say something... Or say \"{magic_word}\" to end the program's execution...")
 
         #listen on the system's default microphone              
@@ -60,9 +63,8 @@ def main():
 
             #checks if web browser command was entered
             if spoken_text.lower() == "open google":
-                print("Opening Google then Terminating...")
+                print("Opening Google...")
                 webbrowser.open("https://google.com", new=2)
-                exit(0)
 
             print(pattern)
             

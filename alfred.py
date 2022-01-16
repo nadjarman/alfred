@@ -22,6 +22,27 @@
 import speech_recognition
 import webbrowser
 
+# execute_command(command: str) 
+# Commands will be cross referenced with available list of commands
+#If command is found, it will be performed
+#if command is not found, the appropriate message will display
+
+def execute_command(command: str):
+    command = command.lower()
+
+    if command.lower() == "introduce yourself":
+        print("Hello, my name is Alfred...")
+        print("Your virtual assistant.")
+
+    #checks if web browser command was entered
+    elif command.lower() == "open google":
+        print("Opening Google...")
+        webbrowser.open("https://google.com", new=2)
+
+    else:
+        print("Command not found...")
+
+
 
 def main():
 
@@ -46,28 +67,25 @@ def main():
             #printing command
             print("\nCommand: \"" + spoken_text + "\"\n")
 
+            spoken_text = spoken_text.lower()
+
 
         #########################################################################################################
 
         # Here is where inputted commands will be checked against the current voice features available...
-
-            if spoken_text.lower() == "introduce yourself":
-                print("Hello, my name is Alfred...")
-                print("Your virtual assistant.")
-
             #checking for magic word
-            if spoken_text.lower() == magic_word.lower():
+
+            if spoken_text== magic_word.lower():
                 print("\nYou used the magic word. Terminating program...")
                 print(pattern)
                 exit(0)
 
-            #checks if web browser command was entered
-            if spoken_text.lower() == "open google":
-                print("Opening Google...")
-                webbrowser.open("https://google.com", new=2)
+            execute_command(spoken_text)
 
             print(pattern)
             
+
+
         except (LookupError):
             print("\nException occurred. Breaking execution...")
 

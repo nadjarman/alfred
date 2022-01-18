@@ -14,8 +14,9 @@
 # Through the speech_recognition Python module, I am able to implement Google's voice recognition
 # software in order to gather microphone data and perform the functions of a Virtual Assistant.
 
-# Command line instruction to run the program:
-#           python3 main.py
+# Information on how to download dependencies,
+# as well as how to run the project can all be found
+# inside of the README.md file
 
 
 import speech_recognition

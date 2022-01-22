@@ -14,13 +14,12 @@
 # Through the speech_recognition Python module, I am able to implement Google's voice recognition
 # software in order to gather microphone data and perform the functions of a Virtual Assistant.
 
-# Information on how to download dependencies,
-# as well as how to run the project can all be found
-# inside of the README.md file
+# Command line instruction to run the program:
+#           python3 main.py
 
 
 import speech_recognition
-import webbrowser
+from search import open_google, search_for
 
 
 # execute_command(command: str)
@@ -29,19 +28,30 @@ import webbrowser
 # if command is not found, the appropriate message will display
 
 def execute_command(command: str):
-    command = command.lower()
+    recognizer = speech_recognition.Recognizer()
+    with speech_recognition.Microphone() as mic:
+        command = command.lower()
 
-    if command.lower() == "introduce yourself":
-        print("Hello, my name is Alfred...")
-        print("Your virtual assistant.")
+        if command.lower() == "introduce yourself":
+            print("Hello, my name is Alfred...")
+            print("Your virtual assistant.")
 
-    # checks if web browser command was entered
-    elif command.lower() == "open google":
-        print("Opening Google...")
-        webbrowser.open("https://google.com", new=2)
+        # checks if web browser command was entered
+        elif command.lower() == "open google":
+            open_google()
+        
+        elif command.lower() == "google search":
+                try:
+                    print("Say your desired search phrase...")
+                    input_audio = recognizer.listen(mic)
+                    search_term = recognizer.recognize_google(input_audio)
+                    search_for(search_term)
+                except (LookupError, speech_recognition.UnknownValueError):
+                    print("\nException occurred. Breaking execution...")
+                    exit(0)
 
-    else:
-        print("Command not found...")
+        else:
+            print("Command not found...")
 
 
 def main():
@@ -82,8 +92,9 @@ def main():
 
             print(pattern)
 
-        except LookupError:
+        except (LookupError, speech_recognition.UnknownValueError):
             print("\nException occurred. Breaking execution...")
+            exit(0)
 
 
 if __name__ == "__main__":

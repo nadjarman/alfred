@@ -1,11 +1,10 @@
-**_Author:_** Arman Nadjarian
+# alfred
 
+**_Author:_** Arman Nadjarian
 
 **_Alfred Virtual Assistant Commands List_**
 
-
 **_Commands:_**
-
 
         1. "introduce yourself" - alfred introduces himself
         2. "open google" - alfred opens a blank google search page

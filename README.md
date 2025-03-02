@@ -4,7 +4,7 @@
 
 **_Project Goal:_** To create a virtual assistant capable of automating mundane tasks via voice commands.
 
-Purpose:
+**_Purpose:_**
     The purpose of this project is to learn how to interact with hardware via Python.
     Additionally, to learn how to take data from peripherals and perform analysis on said data.
     This project is a virtual assistant that is able to respond to user voice commands
